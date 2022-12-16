@@ -5,6 +5,7 @@ class CreateConversations < ActiveRecord::Migration[7.0]
       t.integer :user_id_to
       t.string :message
       t.boolean :read_status
+      t.integer :room_id
 
       t.timestamps
     end
