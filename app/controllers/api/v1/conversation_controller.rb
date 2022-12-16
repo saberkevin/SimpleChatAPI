@@ -39,16 +39,23 @@ module Api
             end
 
             def seeAllChat
-                @conversation = Conversation.find_by_sql("SELECT c.user_id_from, c.user_id_to, d.name as name_from, e.name AS name_to, c.message, c.read_status, c.created_at, c.id FROM conversations c 
+                @conversation = Conversation.find_by_sql("SELECT c.user_id_from, c.user_id_to, d.name as name_from, e.name AS name_to, c.message, c.read_status,         
+                    i.unread_count, c.id FROM conversations c 
                     JOIN users d ON c.user_id_from = d.id 
                     JOIN users e ON c.user_id_to = e.id
                     JOIN rooms f ON c.room_id = f.id
-                    WHERE 1 IN (c.user_id_from,c.user_id_to) 
-                    AND c.updated_at = (
-                        SELECT MAX(g.updated_at) FROM conversations g
+                    LEFT JOIN (
+                        SELECT count(g.read_status) AS unread_count, g.room_id FROM conversations g
                         JOIN rooms h ON g.room_id = h.id
-                        WHERE 1 IN (g.user_id_from,g.user_id_to) 
-                        AND c.room_id = h.id
+                        WHERE read_status = false
+                        GROUP BY g.room_id
+                    ) i ON c.room_id = i.room_id
+                    WHERE " + params[:id] + " IN (c.user_id_from,c.user_id_to) 
+                    AND c.updated_at = (
+                        SELECT MAX(j.updated_at) FROM conversations j
+                        JOIN rooms k ON j.room_id = k.id
+                        WHERE " + params[:id] + " IN (j.user_id_from,j.user_id_to) 
+                        AND c.room_id = k.id
                     )")
                 render json: @conversation
             end
