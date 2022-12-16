@@ -11,8 +11,8 @@ Step to run and intialize:
 
 API Specification
 
-1. http://localhost:3000/api/v1/conversation
-    Example Body:
+1. http://localhost:3000/api/v1/conversation <br />
+    Example Body: 
     {
         "name": "Maya"
     }
@@ -24,7 +24,7 @@ API Specification
         "updated_at": "2022-12-16T03:57:33.645Z"
     }
 
-2. http://localhost:3000/api/v1/conversation
+2. http://localhost:3000/api/v1/conversation <br />
     Example Body:
     {
         "user_id_from": 3,
@@ -45,7 +45,7 @@ API Specification
     }
 Note: if "message" key is empty , it will not be saved to database and not returning JSON
 
-3. http://localhost:3000/api/v1/currentChat
+3. http://localhost:3000/api/v1/currentChat <br />
     Example Body:
     {
         "user_id_from": 3,
@@ -85,7 +85,7 @@ Note: if "message" key is empty , it will not be saved to database and not retur
         }
     ]
 
-4. http://localhost:3000/api/v1/seeAllChat/1 ("1" is user_id)
+4. http://localhost:3000/api/v1/seeAllChat/1 ("1" is user_id) <br />
     Example Result:
     [
         {
