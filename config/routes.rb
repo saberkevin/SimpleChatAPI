@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       resources :user
       post 'conversation' => 'conversation#create'
       post 'currentChat' => 'conversation#currentChat'
-      post 'seeAllChat' => 'conversation#seeAllChat'
+      get 'seeAllChat/:id' => 'conversation#seeAllChat'
     end
   end
 end

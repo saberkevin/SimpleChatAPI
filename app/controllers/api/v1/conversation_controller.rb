@@ -21,7 +21,12 @@ module Api
                 render json: @conversation
             end
 
-
+            def seeAllChat
+                @conversation = Conversation.find_by_sql("SELECT c.user_id_from, c.user_id_to, d.name as name_from, e.name AS name_to, c.message, c.read_status, c.created_at, c.id FROM 
+                    conversations c JOIN users d ON c.user_id_from = d.id JOIN users e ON c.user_id_to = e.id
+                    WHERE 1 IN (c.user_id_from,c.user_id_to)")
+                render json: @conversation
+            end
 
             private
             def currentChat_params
