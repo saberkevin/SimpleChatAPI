@@ -13,26 +13,32 @@ API Specification
 
 1. http://localhost:3000/api/v1/conversation <br />
     Example Body: <br />
+    ```
     {
         "name": "Maya"
     }
+    ```
     <br /> Example Result: <br />
+    ```
     {
         "id": 4,
         "name": "Maya",
         "created_at": "2022-12-16T03:57:33.645Z",
         "updated_at": "2022-12-16T03:57:33.645Z"
     }
-
+    ```
 2. http://localhost:3000/api/v1/conversation <br />
     Example Body: <br />
+    ```
     {
         "user_id_from": 3,
         "user_id_to": 1,
         "message": "oi",
         "read_status": false
     }
+    ```
     <br /> Example Result: <br />
+    ```
     {
         "id": 22,
         "user_id_from": 3,
@@ -43,15 +49,19 @@ API Specification
         "created_at": "2022-12-16T03:22:04.238Z",
         "updated_at": "2022-12-16T03:22:04.238Z"
     }
+    ```
 Note: if "message" key is empty , it will not be saved to database and not returning JSON
 
 3. http://localhost:3000/api/v1/currentChat <br />
     Example Body: <br />
+    ```
     {
         "user_id_from": 3,
         "user_id_to": 1
     }
+    ```
     <br /> Example Result: <br />
+    ```
     [
         {
             "id": 15,
@@ -84,9 +94,10 @@ Note: if "message" key is empty , it will not be saved to database and not retur
             "updated_at": "2022-12-16T03:11:12.512Z"
         }
     ]
-
+    ```
 4. http://localhost:3000/api/v1/seeAllChat/1 ("1" is user_id) <br />
     Example Result: <br />
+    ```
     [
         {
             "user_id_from": 1,
@@ -109,3 +120,4 @@ Note: if "message" key is empty , it will not be saved to database and not retur
             "id": 22
         }
     ]
+    ```
