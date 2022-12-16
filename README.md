@@ -16,7 +16,7 @@ API Specification
     {
         "name": "Maya"
     }
-    <br /> Example Result:
+    <br /> Example Result: <br />
     {
         "id": 4,
         "name": "Maya",
@@ -32,7 +32,7 @@ API Specification
         "message": "oi",
         "read_status": false
     }
-    <br /> Example Result:
+    <br /> Example Result: <br />
     {
         "id": 22,
         "user_id_from": 3,
@@ -51,7 +51,7 @@ Note: if "message" key is empty , it will not be saved to database and not retur
         "user_id_from": 3,
         "user_id_to": 1
     }
-    <br /> Example Result:
+    <br /> Example Result: <br />
     [
         {
             "id": 15,
@@ -86,7 +86,7 @@ Note: if "message" key is empty , it will not be saved to database and not retur
     ]
 
 4. http://localhost:3000/api/v1/seeAllChat/1 ("1" is user_id) <br />
-    Example Result:
+    Example Result: <br />
     [
         {
             "user_id_from": 1,
