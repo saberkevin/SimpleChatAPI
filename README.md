@@ -12,100 +12,100 @@ Step to run and intialize:
 API Specification
 
 A. http://localhost:3000/api/v1/conversation
-Example Body:
-{
-    "name": "Maya"
-}
-Example Result:
-{
-    "id": 4,
-    "name": "Maya",
-    "created_at": "2022-12-16T03:57:33.645Z",
-    "updated_at": "2022-12-16T03:57:33.645Z"
-}
+    Example Body:
+    {
+        "name": "Maya"
+    }
+    Example Result:
+    {
+        "id": 4,
+        "name": "Maya",
+        "created_at": "2022-12-16T03:57:33.645Z",
+        "updated_at": "2022-12-16T03:57:33.645Z"
+    }
 
 B. http://localhost:3000/api/v1/conversation
-Example Body:
-{
-    "user_id_from": 3,
-    "user_id_to": 1,
-    "message": "oi",
-    "read_status": false
-}
-Example Result:
-{
-    "id": 22,
-    "user_id_from": 3,
-    "user_id_to": 1,
-    "message": "oi",
-    "read_status": false,
-    "room_id": 4,
-    "created_at": "2022-12-16T03:22:04.238Z",
-    "updated_at": "2022-12-16T03:22:04.238Z"
-}
+    Example Body:
+    {
+        "user_id_from": 3,
+        "user_id_to": 1,
+        "message": "oi",
+        "read_status": false
+    }
+    Example Result:
+    {
+        "id": 22,
+        "user_id_from": 3,
+        "user_id_to": 1,
+        "message": "oi",
+        "read_status": false,
+        "room_id": 4,
+        "created_at": "2022-12-16T03:22:04.238Z",
+        "updated_at": "2022-12-16T03:22:04.238Z"
+    }
 Note: if "message" key is empty , it will not be saved to database and not returning JSON
 
 C. http://localhost:3000/api/v1/currentChat
-Example Body:
-{
-    "user_id_from": 3,
-    "user_id_to": 1
-}
-Example Result:
-[
+    Example Body:
     {
-        "id": 15,
-        "user_id_from": 1,
-        "user_id_to": 3,
-        "message": "yawa",
-        "read_status": true,
-        "room_id": 4,
-        "created_at": "2022-12-16T02:59:08.388Z",
-        "updated_at": "2022-12-16T02:59:08.388Z"
-    },
-    {
-        "id": 16,
         "user_id_from": 3,
-        "user_id_to": 1,
-        "message": "wawa",
-        "read_status": true,
-        "room_id": 4,
-        "created_at": "2022-12-16T02:59:21.327Z",
-        "updated_at": "2022-12-16T02:59:21.327Z"
-    },
-    {
-        "id": 19,
-        "user_id_from": 1,
-        "user_id_to": 3,
-        "message": "kay",
-        "read_status": true,
-        "room_id": 4,
-        "created_at": "2022-12-16T03:11:12.512Z",
-        "updated_at": "2022-12-16T03:11:12.512Z"
+        "user_id_to": 1
     }
-]
+    Example Result:
+    [
+        {
+            "id": 15,
+            "user_id_from": 1,
+            "user_id_to": 3,
+            "message": "yawa",
+            "read_status": true,
+            "room_id": 4,
+            "created_at": "2022-12-16T02:59:08.388Z",
+            "updated_at": "2022-12-16T02:59:08.388Z"
+        },
+        {
+            "id": 16,
+            "user_id_from": 3,
+            "user_id_to": 1,
+            "message": "wawa",
+            "read_status": true,
+            "room_id": 4,
+            "created_at": "2022-12-16T02:59:21.327Z",
+            "updated_at": "2022-12-16T02:59:21.327Z"
+        },
+        {
+            "id": 19,
+            "user_id_from": 1,
+            "user_id_to": 3,
+            "message": "kay",
+            "read_status": true,
+            "room_id": 4,
+            "created_at": "2022-12-16T03:11:12.512Z",
+            "updated_at": "2022-12-16T03:11:12.512Z"
+        }
+    ]
 
 D. http://localhost:3000/api/v1/seeAllChat/1 ("1" is user_id)
-Example Result:
-[
-    {
-        "user_id_from": 1,
-        "user_id_to": 2,
-        "name_from": "Kevin",
-        "name_to": "Jaka",
-        "message": "ok",
-        "read_status": true,
-        "unread_count": 1,
-        "id": 18
-    },
-    {
-        "user_id_from": 3,
-        "user_id_to": 1,
-        "name_from": "Mira",
-        "name_to": "Kevin",
-        "message": "oi",
-        "read_status": false,
-        "unread_count": 3,
-        "id": 22
-    }
-]
+    Example Result:
+    [
+        {
+            "user_id_from": 1,
+            "user_id_to": 2,
+            "name_from": "Kevin",
+            "name_to": "Jaka",
+            "message": "ok",
+            "read_status": true,
+            "unread_count": 1,
+            "id": 18
+        },
+        {
+            "user_id_from": 3,
+            "user_id_to": 1,
+            "name_from": "Mira",
+            "name_to": "Kevin",
+            "message": "oi",
+            "read_status": false,
+            "unread_count": 3,
+            "id": 22
+        }
+    ]
