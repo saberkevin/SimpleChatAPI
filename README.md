@@ -12,11 +12,11 @@ Step to run and intialize:
 API Specification
 
 1. http://localhost:3000/api/v1/conversation <br />
-    Example Body: 
+    Example Body: <br />
     {
         "name": "Maya"
     }
-    Example Result:
+    <br /> Example Result:
     {
         "id": 4,
         "name": "Maya",
@@ -25,14 +25,14 @@ API Specification
     }
 
 2. http://localhost:3000/api/v1/conversation <br />
-    Example Body:
+    Example Body: <br />
     {
         "user_id_from": 3,
         "user_id_to": 1,
         "message": "oi",
         "read_status": false
     }
-    Example Result:
+    <br /> Example Result:
     {
         "id": 22,
         "user_id_from": 3,
@@ -46,12 +46,12 @@ API Specification
 Note: if "message" key is empty , it will not be saved to database and not returning JSON
 
 3. http://localhost:3000/api/v1/currentChat <br />
-    Example Body:
+    Example Body: <br />
     {
         "user_id_from": 3,
         "user_id_to": 1
     }
-    Example Result:
+    <br /> Example Result:
     [
         {
             "id": 15,
